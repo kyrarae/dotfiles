@@ -27,6 +27,7 @@ opacity = 0.95
 blur = true
 padding = { x = 10, y = 5 }
 resize_increments = true
+option_as_alt = "OnlyLeft"
 
 [font]
 normal = { family = "FiraMono Nerd Font Mono", style = "Regular" }

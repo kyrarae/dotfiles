@@ -109,7 +109,7 @@ modified = "~"
 renamed = "»"
 untracked = "+"
 staged = "●"
-stashed = "ﮅ "
+stashed = "󰏗 "
 
 [hg_branch]
 symbol = " "

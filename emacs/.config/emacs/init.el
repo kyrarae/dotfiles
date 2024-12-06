@@ -271,9 +271,11 @@
 (use-package git-gutter
   :ensure t
   :custom
-  (git-gutter:update-interval 0.02)
+  (git-gutter:update-interval 0.5)
   :hook
   (prog-mode-hook . git-gutter-mode)
+  (text-mode-hook . git-gutter-mode)
+  (conf-mode-hook . git-gutter-mode)
   :delight
   (git-gutter-mode " gg"))
 
