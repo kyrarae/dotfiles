@@ -1,0 +1,6 @@
+[user]
+	name = kyrarae
+	email = kyrarae@protonmail.com
+	signingkey = /Users/valkyrae/.ssh/id_kyrarae.pub
+[gpg]
+	format = ssh

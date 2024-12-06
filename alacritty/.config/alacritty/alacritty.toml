@@ -1,0 +1,84 @@
+##
+##  █████╗ ██╗      █████╗  ██████╗██████╗ ██╗████████╗████████╗██╗   ██╗
+## ██╔══██╗██║     ██╔══██╗██╔════╝██╔══██╗██║╚══██╔══╝╚══██╔══╝╚██╗ ██╔╝
+## ███████║██║     ███████║██║     ██████╔╝██║   ██║      ██║    ╚████╔╝
+## ██╔══██║██║     ██╔══██║██║     ██╔══██╗██║   ██║      ██║     ╚██╔╝
+## ██║  ██║███████╗██║  ██║╚██████╗██║  ██║██║   ██║      ██║      ██║
+## ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝   ╚═╝      ╚═╝      ╚═╝
+## A cross-platform, OpenGL terminal emulator.
+## https://alacritty.org
+
+import = [
+#"~/.config/alacritty/catppuccin-frappe.toml",
+#"~/.config/alacritty/catppuccin-macchiato.toml",
+"~/.config/alacritty/catppuccin-mocha.toml",
+]
+
+shell = { program = "/usr/local/bin/fish", args = ["-l"] }
+live_config_reload = true
+
+[env]
+TERM = "xterm-256color"
+
+[window]
+dimensions = { columns = 104, lines = 36 }
+decorations = "Full"
+opacity = 0.95
+blur = true
+padding = { x = 10, y = 5 }
+resize_increments = true
+
+[font]
+normal = { family = "FiraMono Nerd Font Mono", style = "Regular" }
+bold = { family = "FiraMono Nerd Font Mono", style = "Bold" }
+size = 13
+
+[colors]
+transparent_background_colors = true
+draw_bold_text_with_bright_colors = true
+
+[cursor]
+style = { shape = "Block", blinking = "Off" }
+unfocused_hollow = true
+
+[selection]
+save_to_clipboard = true
+
+[mouse]
+bindings = [
+{ mouse = "Right", action = "Paste" }
+]
+
+# █▀ █░█ █▀█ █▀█ ▀█▀ █▀▀ █░█ ▀█▀ █▀
+# ▄█ █▀█ █▄█ █▀▄ ░█░ █▄▄ █▄█ ░█░ ▄█
+
+[keyboard]
+bindings = [
+{ key = "E", mods = "Command", chars = "\u0001\"" }, # split tmux window vertically
+{ key = "E", mods = "Command|Shift", chars = "\u0001%" }, # split tmux window horizontally
+{ key = "F", mods = "Command", chars = "\u0001\u005b\u002f" }, # start tmux search modei
+{ key = "H", mods = "Command", chars = "\u0001h" }, # switch to left pane
+{ key = "J", mods = "Command", chars = "\u0001j" }, # switch to lower pane
+{ key = "K", mods = "Command", chars = "\u0001k" }, # switch to upper pane
+{ key = "L", mods = "Command", chars = "\u0001l" }, # switch to right pane
+{ key = "N", mods = "Command", chars = "\u0001c" }, # create new tmux window
+{ key = "N", mods = "Command|Shift", action = "CreateNewWindow" }, # create new alacritty window
+{ key = "R", mods = "Command", chars = "\u0001r" }, # refresh tmux configuration
+{ key = "T", mods = "Command", chars = "\u0001\u0054" }, # open tmux smart session manager
+{ key = "W", mods = "Command", chars = "\u0001x" }, # kill the current pane
+{ key = "W", mods = "Command|Shift", chars = "\u0001&"}, # kill the current tmux window
+{ key = "Tab", mods = "Control", chars = "\u0001n" }, # switch to next tmux window
+{ key = "Tab", mods = "Control|Shift", chars = "\u0001p" }, # switch to previous tmux window
+{ key = ".", mods = "Command", chars = "\u0001:" }, # enter the tmux command prompt
+{ key = ",", mods = "Command", chars = "\u0001," }, # rename the current tmux window
+{ key = "0", mods = "Command", chars = "\u00010" }, # select tmux window 0
+{ key = "1", mods = "Command", chars = "\u00011" }, # select tmux window 1
+{ key = "2", mods = "Command", chars = "\u00012" }, # select tmux window 2
+{ key = "3", mods = "Command", chars = "\u00013" }, # select tmux window 3
+{ key = "4", mods = "Command", chars = "\u00014" }, # select tmux window 4
+{ key = "5", mods = "Command", chars = "\u00015" }, # select tmux window 5
+{ key = "6", mods = "Command", chars = "\u00016" }, # select tmux window 6
+{ key = "7", mods = "Command", chars = "\u00017" }, # select tmux window 7
+{ key = "8", mods = "Command", chars = "\u00018" }, # select tmux window 8
+{ key = "9", mods = "Command", chars = "\u00019" }, # select tmux window 9
+]
