@@ -57,15 +57,19 @@ bindings = [
 bindings = [
 { key = "E", mods = "Command", chars = "\u0001\"" }, # split tmux window vertically
 { key = "E", mods = "Command|Shift", chars = "\u0001%" }, # split tmux window horizontally
-{ key = "F", mods = "Command", chars = "\u0001\u005b\u002f" }, # start tmux search modei
-{ key = "H", mods = "Command", chars = "\u0001h" }, # switch to left pane
-{ key = "J", mods = "Command", chars = "\u0001j" }, # switch to lower pane
-{ key = "K", mods = "Command", chars = "\u0001k" }, # switch to upper pane
-{ key = "L", mods = "Command", chars = "\u0001l" }, # switch to right pane
+{ key = "F", mods = "Command", chars = "\u0001\u005b\u002f" }, # start tmux search mode
+{ key = "ArrowLeft", mods = "Command", chars = "\u0001h" }, # switch to left pane
+{ key = "ArrowDown", mods = "Command", chars = "\u0001j" }, # switch to lower pane
+{ key = "ArrowUp", mods = "Command", chars = "\u0001k" }, # switch to upper pane
+{ key = "ArrowRight", mods = "Command", chars = "\u0001l" }, # switch to right pane
+{ key = "K", mods = "Command", chars = "\u0001\u004b" }, # open sesh popup
 { key = "N", mods = "Command", chars = "\u0001c" }, # create new tmux window
 { key = "N", mods = "Command|Shift", action = "CreateNewWindow" }, # create new alacritty window
-{ key = "R", mods = "Command", chars = "\u0001r" }, # refresh tmux configuration
-{ key = "T", mods = "Command", chars = "\u0001\u0054" }, # open tmux smart session manager
+{ key = "R", mods = "Command", chars = "\u0001$" }, # rename session name
+{ key = "R", mods = "Command|Shift", chars = "\u0001r" }, # refresh tmux configuration
+{ key = "I", mods = "Command|Shift", chars = "\u0001\u0049" }, # install new tmux plugins
+{ key = "S", mods = "Command", chars = "\u0001s" }, # show tmux session window
+{ key = "S", mods = "Command|Shift", chars = "\u0001\u0053" }, # create new tmux session
 { key = "W", mods = "Command", chars = "\u0001x" }, # kill the current pane
 { key = "W", mods = "Command|Shift", chars = "\u0001&"}, # kill the current tmux window
 { key = "Tab", mods = "Control", chars = "\u0001n" }, # switch to next tmux window

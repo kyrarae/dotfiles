@@ -1,3 +1,4 @@
+;;
 ;; ███████╗███╗   ███╗ █████╗  ██████╗███████╗
 ;; ██╔════╝████╗ ████║██╔══██╗██╔════╝██╔════╝
 ;; █████╗  ██╔████╔██║███████║██║     ███████╗
@@ -267,28 +268,6 @@
 	 ("C-c l"         . magit-log)
 	 ("C-c f"         . magit-grep)))
 
-;; Git gutter
-(use-package git-gutter
-  :ensure t
-  :custom
-  (git-gutter:update-interval 0.5)
-  :hook
-  (prog-mode-hook . git-gutter-mode)
-  (text-mode-hook . git-gutter-mode)
-  (conf-mode-hook . git-gutter-mode)
-  :delight
-  (git-gutter-mode " gg"))
-
-(use-package git-gutter-fringe
-  :ensure t
-  :config
-  (define-fringe-bitmap 'git-gutter-fr:added
-    [224] nil nil '(center repeated))
-  (define-fringe-bitmap 'git-gutter-fr:modified
-    [224] nil nil '(center repeated))
-  (define-fringe-bitmap 'git-gutter-fr:deleted
-    [128 192 224 240] nil nil 'bottom))
-
 ;; Company
 (use-package company
   :ensure t
@@ -341,6 +320,13 @@
 (use-package simpc-mode
   :load-path "~/.config/emacs/modes/"
   :mode ("\\.[hc]\\(pp\\)?\\'" . simpc-mode))
+
+;; Fish mode
+(use-package fish-mode
+  :ensure t
+  :custom
+  (fish-enable-auto-indent t)
+  :mode ("\\.fish$" . fish-mode))
 
 ;; Markdown mode
 (use-package markdown-mode

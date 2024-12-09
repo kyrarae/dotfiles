@@ -10,6 +10,9 @@ tramp
 # flymake-mode
 *_flymake.*
 
+.DS_Store
+fish_variables
+
 Brewfile.*.lock.json
 secrets.*
 credentials.*
