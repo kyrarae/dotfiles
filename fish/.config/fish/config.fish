@@ -22,3 +22,7 @@ zoxide init fish | source
 starship init fish | source
 
 set -U fish_greeting
+
+set -Ux EDITOR hx
+set -Ux FZF_DEFAULT_COMMAND "fd -H -E '.git'"
+set -Ux VISUAL hx
