@@ -1,3 +1,13 @@
+##
+## ██╗      █████╗ ███████╗██╗   ██╗ ██████╗ ██╗████████╗
+## ██║     ██╔══██╗╚══███╔╝╚██╗ ██╔╝██╔════╝ ██║╚══██╔══╝
+## ██║     ███████║  ███╔╝  ╚████╔╝ ██║  ███╗██║   ██║   
+## ██║     ██╔══██║ ███╔╝    ╚██╔╝  ██║   ██║██║   ██║   
+## ███████╗██║  ██║███████╗   ██║   ╚██████╔╝██║   ██║   
+## ╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝    ╚═════╝ ╚═╝   ╚═╝   
+## A simple terminal UI for git commands
+## https://github.com/jesseduffield/lazygit
+
 gui:
   theme:
     activeBorderColor:
@@ -19,6 +29,7 @@ gui:
       - '#cdd6f4'
     searchingActiveBorderColor:
       - '#f9e2af'
-
   authorColors:
     '*': '#b4befe'
+  border: 'single'
+  nerdFontsVersion: "3"
