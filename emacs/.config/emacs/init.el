@@ -77,6 +77,20 @@
   (after-make-frame-functions . contextual-menu-bar)
   (after-init-hook . contextual-menu-bar))
 
+;; Colorize compilation buffer
+(use-package emacs
+  :demand t
+  :custom
+  (compilation-scroll-output t)
+  :config
+  (require 'ansi-color)
+  (defun colorize-compilation-buffer ()
+    (read-only-mode 'toggle)
+    (ansi-color-apply-on-region compilation-filter-start (point))
+    (read-only-mode 'toggle))
+  :hook
+  (compilation-filter-hook . colorize-compilation-buffer))
+
 ;; Editor appearance & settings
 (use-package emacs
   :custom
@@ -84,9 +98,10 @@
   (scroll-bar-mode nil)
   (global-display-line-numbers-mode t)
   (display-line-numbers-grow-only   t)
-  (display-line-numbers-type        'absolute)
+  (display-line-numbers-type        'relative)
   (display-line-numbers-width-start t)
-  (delete-selection-mode t))
+  (delete-selection-mode t)
+  (blink-cursor-mode nil))
 ; :hook
 ; (prog-mode-hook . hl-line-mode))
 
@@ -176,6 +191,7 @@
               (back-quote . "`")))
   :hook
   (prog-mode-hook . smartparens-mode)
+  (conf-mode-hook . smartparens-mode)
   :bind (:map
 	 smartparens-mode-map
 	 ("C-<right>"     . sp-forward-symbol)
@@ -231,15 +247,16 @@
          ("C-<down>"      . mc/mark-next-like-this-word)
          ("M-<up>"        . mc/mark-previous-like-this-symbol)
          ("M-<down>"      . mc/mark-next-like-this-symbol)
-         ("h"             . mc/mark-all-like-this)
+         ("C-S-h"         . mc/mark-all-like-this)
          ("C-h"           . mc/mark-all-words-like-this)
          ("M-h"           . mc/mark-all-symbols-like-this)
-         ("e"             . mc/mark-more-like-this-extended)
-         ("r"             . mc/edit-lines)
+         ("C-e"           . mc/mark-more-like-this-extended)
+         ("C-r"           . mc/edit-lines)
          ("M-n"           . mc/insert-letters)
-         ("n"             . mc/insert-numbers)
-         ("s"             . mc/sort-regions)
-         ("M-s"           . mc/reverse-regions)))
+         ("C-n"           . mc/insert-numbers)
+         ("C-s"           . mc/sort-regions)
+         ("M-s"           . mc/reverse-regions)
+	 ("<escape>"      . mc/keyboard-quit)))
 
 ;; Editing
 (use-package emacs
@@ -250,6 +267,8 @@
 	 ("s-<down>"      . end-of-buffer)
 	 ("s-S-<up>"      . backward-paragraph)
 	 ("s-S-<down>"    . forward-paragraph)
+	 ("M-S-<up>"      . scroll-up-line)
+	 ("M-S-<down>"    . scroll-down-line)
 	 ("s-i"           . overwrite-mode)))
 
 ;; Move text
@@ -275,8 +294,9 @@
   (global-company-mode))
 
 ;; Which key
+;; which-key is now part of version 30
 (use-package which-key
-  :ensure t 
+  :ensure t
   :config
   (which-key-mode)
   :delight)
@@ -334,5 +354,11 @@
   :mode (("\\.md\\'" . markdown-mode)
 	 ("README\\.md\\'" . gfm-mode)
 	 ("\\.page\\'" . gfm-mode)))
+
+(use-package meson-mode
+  :ensure t
+  :hook
+  (meson-mode-hook . company-mode)
+  :mode (("meson\\.build\\'" . meson-mode)))
 
 (provide 'init)
