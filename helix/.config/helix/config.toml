@@ -1,0 +1,29 @@
+##
+## ██╗  ██╗███████╗██╗     ██╗██╗  ██╗
+## ██║  ██║██╔════╝██║     ██║╚██╗██╔╝
+## ███████║█████╗  ██║     ██║ ╚███╔╝ 
+## ██╔══██║██╔══╝  ██║     ██║ ██╔██╗ 
+## ██║  ██║███████╗███████╗██║██╔╝ ██╗
+## ╚═╝  ╚═╝╚══════╝╚══════╝╚═╝╚═╝  ╚═╝
+## A post-modern modal text editor
+## https://helix-editor.com
+
+theme = "catppuccin_mocha"
+
+[editor]
+line-number = "relative"
+rulers = [80]
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[keys.normal]
+"A-up" = "goto_prev_paragraph"
+"A-down" = "goto_next_paragraph"
+"A-left" = "goto_line_start"
+"A-right" = "goto_line_end"
