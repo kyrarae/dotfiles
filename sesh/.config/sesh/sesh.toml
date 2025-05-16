@@ -1,0 +1,41 @@
+##
+## ███████╗███████╗███████╗██╗  ██╗
+## ██╔════╝██╔════╝██╔════╝██║  ██║
+## ███████╗█████╗  ███████╗███████║
+## ╚════██║██╔══╝  ╚════██║██╔══██║
+## ███████║███████╗███████║██║  ██║
+## ╚══════╝╚══════╝╚══════╝╚═╝  ╚═╝
+## Smart session manager for the terminal
+## https://github.com/joshmedeski/sesh
+
+[default_session]
+startup_command = "hx ."
+
+[[session]]
+name = "home 󰋜"
+path = "~"
+startup_command = "ls"
+
+[[session]]
+name = "projects"
+path = "~/projects"
+startup_command = "ls"
+
+[[session]]
+name = "dotfiles"
+path = "~/.dotfiles"
+
+[[session]]
+name = "tmux config"
+path = "~/.dotfiles/tmux/.config/tmux"
+startup_command = "hx tmux.conf"
+
+[[session]]
+name = "sesh config"
+path = "~/.dotfiles/sesh/.config/sesh"
+startup_command = "hx sesh.toml"
+
+[[session]]
+name = "fish config"
+path = "~/.dotfiles/fish/.config/fish"
+startup_command = "hx config.fish"
