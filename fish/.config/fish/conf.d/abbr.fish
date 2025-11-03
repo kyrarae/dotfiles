@@ -1,6 +1,8 @@
 abbr c clear
 abbr cx "chmod +x"
 
+abbr gi gitignore
+
 abbr l "eza --group --header --group-directories-first --long --git --all --binary --all --icons"
 abbr ls eza
 
