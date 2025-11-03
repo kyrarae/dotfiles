@@ -28,6 +28,9 @@
 ;; Custom frame title
 (setq frame-title-format '("" "%b @ Emacs " emacs-version))
 
+;; Set frame to maximized
+(add-to-list 'initial-frame-alist '(fullscreen . maximized))
+
 ;; Make special key combos usable in terminal mode
 ;; https://stackoverflow.com/a/10867354
 ;; Note: These do not work when using tmux

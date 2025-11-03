@@ -101,7 +101,14 @@
   (display-line-numbers-type        'relative)
   (display-line-numbers-width-start t)
   (delete-selection-mode t)
-  (blink-cursor-mode nil))
+  (blink-cursor-mode nil)
+  :config
+  (put 'upcase-region   'disabled nil)
+  (put 'downcase-region 'disabled nil)
+  (defun reload-init-file()
+    (interactive)
+    (load-file user-init-file))
+  :bind (("C-c r" . reload-init-file)))
 ; :hook
 ; (prog-mode-hook . hl-line-mode))
 
@@ -269,6 +276,8 @@
 	 ("s-S-<down>"    . forward-paragraph)
 	 ("M-S-<up>"      . scroll-up-line)
 	 ("M-S-<down>"    . scroll-down-line)
+	 ("C-c u"         . upcase-region)
+	 ("C-c l"         . downcase-region)
 	 ("s-i"           . overwrite-mode)))
 
 ;; Move text
@@ -278,14 +287,14 @@
 	 ("M-<down>"      . move-text-down)))
 
 ;; Magit
-(use-package magit
-  :ensure t
-  :custom
+;(use-package magit
+;  :ensure t
+;  :custom
 ; (magit-auto-revert-mode nil)
-  (magit-completing-read-function 'magit-ido-completing-read)
-  :bind (("C-c g"         . magit-status)
-	 ("C-c l"         . magit-log)
-	 ("C-c f"         . magit-grep)))
+;  (magit-completing-read-function 'magit-ido-completing-read)
+;  :bind (("C-c g"         . magit-status)
+;	 ("C-c l"         . magit-log)
+;	 ("C-c f"         . magit-grep)))
 
 ;; Company
 (use-package company
@@ -320,21 +329,24 @@
   (vundo-saved     ((t (:foreground "#a6e3a1"))))
   :bind (("C-x C-u" . vundo)))
 
+;; direnv
+(use-package envrc
+  :ensure t
+  :hook (after-init . envrc-global-mode))
+
 ;; Render html color code as colored text
 (use-package rainbow-mode
   :ensure t
   :hook
   (prog-mode-hook . rainbow-mode)
-  :delight
-  :defer t)
+  :delight)
 
 ;; Rainbow delimiters mode
 (use-package rainbow-delimiters
   :ensure t
   :hook
   (emacs-lisp-mode-hook       . rainbow-delimiters-mode)
-  (lisp-interaction-mode-hook . rainbow-delimiters-mode)
-  :defer t)
+  (lisp-interaction-mode-hook . rainbow-delimiters-mode))
 
 ;; Simple C mode
 (use-package simpc-mode
@@ -348,6 +360,21 @@
   (fish-enable-auto-indent t)
   :mode ("\\.fish$" . fish-mode))
 
+;; LUA mode
+(use-package lua-mode
+  :ensure t
+  :custom
+  (lua-indent-level 2)
+  :mode ("\\.lua\\'" . lua-mode))
+
+;; Justfile
+(use-package just-mode
+  :ensure t
+  :mode ("justfile" . just-mode))
+(use-package justl
+  :ensure t
+  :bind ("C-c C-j" . justl))
+
 ;; Markdown mode
 (use-package markdown-mode
   :ensure t
@@ -355,10 +382,23 @@
 	 ("README\\.md\\'" . gfm-mode)
 	 ("\\.page\\'" . gfm-mode)))
 
+;; Meson mode
 (use-package meson-mode
   :ensure t
   :hook
   (meson-mode-hook . company-mode)
-  :mode (("meson\\.build\\'" . meson-mode)))
+  :mode ("meson\\.build\\'" . meson-mode))
+
+;; YAML mode
+(use-package yaml-mode
+  :ensure t
+  :custom
+  (yaml-indent-offset 4)
+  :mode ("\\.yml\\'" . yaml-mode))
+
+;; Go mode
+;;(use-package go-mode
+;;  :ensure t
+;;  :mode ("\\.go\\'" . go-mode))
 
 (provide 'init)
