@@ -8,7 +8,7 @@
 ## Ghostty is a fast, feature-rich, and cross-platform terminal emulator
 ## https://ghostty.org
 
-theme = catppuccin-mocha
+theme = Catppuccin Mocha
 
 # Shell
 command = "/usr/local/bin/fish --login"
@@ -25,9 +25,10 @@ clipboard-trim-trailing-spaces = true
 mouse-hide-while-typing = true
 window-padding-x = 10
 window-padding-y = 5
-#window-save-state = always
+window-save-state = always
 
 # MacOS
+macos-titlebar-style = tabs
 macos-titlebar-proxy-icon = hidden
 macos-icon = custom-style
 macos-icon-frame = plastic
