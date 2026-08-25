@@ -1,0 +1,68 @@
+# OS & System Junk
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+
+# General Temp & Backup Files
+*.tmp
+*.log
+*.swp
+*~
+.#*
+#*#
+
+# ==========================================
+# Tool-Specific Ignore Rules
+# ==========================================
+
+# Emacs (Native compilation, byte-code, auto-saves, and transient state)
+emacs/*.elc
+emacs/*.eln
+emacs/eln-cache/
+emacs/auto-save-list/
+emacs/var/
+emacs/elpa/
+emacs/straight/build/
+emacs/straight/repos/
+emacs/tramp
+emacs/recentf
+emacs/history
+emacs/bookmarks
+emacs/places
+emacs/tree-sitter/
+emacs/shadows
+emacs/games/
+
+# Fish Shell
+# Uncomment if you prefer keeping machine-local universal variables out of Git:
+# fish/fish_variables
+
+# Zed Editor (AI assistant chat history, Copilot state, database logs)
+zed/prompts/
+zed/conversations/
+zed/logs/
+zed/db/
+zed/copilot/
+
+# Yazi (State files and cache)
+yazi/state.toml
+
+# Ghostty
+ghostty/*.log
+
+# ==========================================
+# Critical Security & State Ignores
+# (From your other mapped tools)
+# ==========================================
+
+# GitHub CLI (DO NOT COMMIT: Contains active OAuth access tokens)
+gh/hosts.yml
+
+# Lazygit (Machine-specific UI state)
+lazygit/state.yml
+
+# Tmux Plugin Manager (Optional: ignore downloaded plugins if using TPM)
+tmux/plugins/
