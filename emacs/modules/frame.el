@@ -2,6 +2,7 @@
 
 ;; Frame width toggle
 (use-package frame
+  :unless kyra-laptop-p
   :init
   (setq frame-resize-pixelwise t)
   :bind ("C-c t f" . kyra-toggle-frame-width)

@@ -12,8 +12,6 @@
          ("C-c C-f" . eglot-format-buffer)))
 
 ;; Disable Flymake
-;; (add-hook 'eglot-managed-mode-hook (lambda ()
-;; 	  (remove-hook 'flymake-diagnostic-functions 'eglot-flymake-backend)))
 (use-package flymake
   :delight)
 
@@ -23,9 +21,8 @@
   :init
   (global-flycheck-mode 1)
   :hook (flycheck-mode-hook . flycheck-annotate-mode)
-  :custom
-  (flycheck-disabled-checkers '(emacs-lisp-checkdoc))
-  (flycheck-temp-prefix (expand-file-name "flycheck/flycheck" user-emacs-directory))
+  ;; :custom
+  ;; (flycheck-disabled-checkers '(emacs-lisp-checkdoc))
   :bind (("M-g M-n" . flycheck-next-error)
          ("M-g M-p" . flycheck-previous-error)
          ("M-g M-=" . flycheck-list-errors)))
@@ -34,5 +31,4 @@
 (use-package flycheck-eglot
   :after (flycheck eglot)
   :ensure t
-  :config
-  (global-flycheck-eglot-mode 1))
+  :hook (eglot-managed-mode . flycheck-eglot-mode))

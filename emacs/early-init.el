@@ -24,6 +24,7 @@
 (setq-default read-process-output-max (* 1024 1024))
 (setq large-file-warning-threshold (* 25 1024 1024))
 
+;; Relocate packages
 (customize-set-value 'package-user-dir "~/.local/share/emacs/packages"
 		     "For `package-vc'")
 
@@ -31,10 +32,14 @@
 (setq-default mode-line-end-spaces nil)
 
 ;; Use fish shell
-;; (setq-default shell-file-name "/opt/homebrew/bin/fish")
 (setq-default shell-file-name
               (or (executable-find "fish")
                   "/bin/sh"))
+
+;; For specific workstation configs
+(defvar kyra-laptop-p
+  (string-match-p "macbook" (downcase (system-name)))
+  "When non-nil, assume we are working on a laptop.")
 
 ;; Fix ugly gap on the right window side when at 100% width
 ;; https://github.com/d12frosted/homebrew-emacs-plus/issues/177
@@ -50,6 +55,7 @@
 ;;(add-to-list 'default-frame-alist '(undecorated . t))
 ;;(add-to-list 'default-frame-alist '(undecorated-round . t))
 
+;; Default font for frame
 (add-to-list 'default-frame-alist '(font . "Terminess Nerd Font-14"))
 
 ;; Custom frame title
@@ -57,7 +63,8 @@
 (setq-default frame-title-format "Emacs")
 
 ;; Set frame to maximized
-;;(add-to-list 'initial-frame-alist '(fullscreen . maximized))
+(when kyra-laptop-p
+  (add-to-list 'initial-frame-alist '(fullscreen . maximized)))
 ;; NOTE: using desktop-save in init to remember frame size/position
 
 ;; Don't beep. Just don't.
