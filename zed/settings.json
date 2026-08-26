@@ -1,0 +1,140 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "edit_predictions": {
+    "mode": "subtle"
+  },
+  "project_panel": {
+    "dock": "left",
+    "folder_icons": false,
+  },
+  "outline_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "agent": {
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": [],
+  },
+  "git_panel": {
+    "dock": "left",
+  },
+  "agent_servers": {
+    },
+  "ui_font_weight": 400.0,
+  "agent_ui_font_size": 16.0,
+  "ui_font_family": "GitLab Sans",
+  "tab_bar": {
+    "show": true,
+  },
+  "buffer_line_height": {
+    "custom": 1.3999998569488525,
+  },
+  "buffer_font_weight": 400.0,
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "title_bar": {
+    "show_onboarding_banner": false,
+    "show_sign_in": false,
+  },
+  "disable_ai": false,
+  "use_system_path_prompts": false,
+  "use_system_prompts": false,
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+  "icon_theme": "Zed (Default)",
+  "ui_font_size": 15.0,
+  "buffer_font_size": 13.0,
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "JetBrains Dark",
+  },
+  "theme_overrides": {
+    "JetBrains Dark": {
+      "editor.active_line.background": "#1F2024FF",
+      "error.background": "#1F2024FF",
+      "hint.background": "#1F2024FF",
+      "info.background": "#1F2024FF",
+      "success.background": "#1F2024FF",
+      "warning.background": "#1F2024FF",
+      "syntax": {
+        "keyword": {
+          "color": "#8E65C7FF",
+        },
+        "operator": {
+          "color": "#6DA6CFFF",
+        },
+      },
+    },
+    "JetBrains Dark (Blur)": {
+      "border": "#393B4100",
+      "border.variant": "#393B4140",
+      "tab.inactive_background": "#00000000",
+    },
+  },
+  "languages": {
+    "Python": {
+      "wrap_guides": [88],
+      "semantic_tokens": "combined",
+      "code_actions_on_format": {
+        "source.organizeImports.ruff": true,
+      },
+      "language_servers": ["basedpyright", "ruff"],
+      "format_on_save": "off",
+      "formatter": {
+        "language_server": {
+          "name": "ruff",
+        },
+      },
+    },
+    "YAML": {
+      "soft_wrap": "editor_width",
+    },
+  },
+  "lsp": {
+    "basedpyright": {
+      "settings": {
+        "basedpyright.analysis": {
+          "autoImportCompletions": true,
+          "diagnosticMode": "workspace",
+          "typeCheckingMode": "standard",
+          "inlayHints": {
+            "callArgumentNames": true,
+            "functionReturnTypes": true,
+          },
+        },
+      },
+    },
+    "ruff": {
+      "initialization_options": {
+        "settings": {
+          "lineLength": 88,
+          "lint": {
+            "select": ["E", "F", "I"], // Standard errors, fly-on-the-wall, and import sorting
+            "extendSelect": ["W", "UP"], // Include warnings and upgrade suggestions
+          },
+          "format": {
+            "preview": true,
+          },
+        },
+      },
+    },
+    "tinymist": {
+      "settings": {
+        "exportPdf": "onSave",
+        "outputPath": "$root/$name",
+      },
+    },
+  },
+}

@@ -38,7 +38,7 @@ emacs/games/
 
 # Fish Shell
 # Uncomment if you prefer keeping machine-local universal variables out of Git:
-# fish/fish_variables
+fish/fish_variables
 
 # Zed Editor (AI assistant chat history, Copilot state, database logs)
 zed/prompts/

@@ -1,0 +1,63 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = kyrarae
+	email = kyrarae@protonmail.com
+	signingkey = /Users/valkyrae/.ssh/id_kyrarae.pub
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true
+[alias]
+    # Full release: validation, status check, history preview, empty commit, and tagging
+    action-release = "!f() { \
+        if ! [[ $1 =~ ^[0-9]+\\.[0-9]+\\.[0-9]+$ ]]; then \
+            echo \"Error: Version must be x.y.z (e.g., 1.0.5)\"; \
+            return 1; \
+        fi; \
+        if ! git diff-index --quiet HEAD --; then \
+            echo \"Error: Uncommitted changes found. Please commit or stash first.\"; \
+            return 1; \
+        fi; \
+        TAG=\"v$1\"; \
+        MAJOR=\"v${1%%.*}\"; \
+        MSG=\"Prepare release $TAG\"; \
+        echo \"RELEASE SUMMARY:\"; \
+        echo \"New Version: $TAG\"; \
+        echo \"Major Tag:   $MAJOR (will be force-moved)\"; \
+        echo \"Recent Changes:\"; \
+        git log -3 --oneline --color; \
+        echo \"-----------------------\"; \
+        read -p \"Create empty commit and push $TAG? (y/n): \" confirm; \
+        if [[ $confirm == [yY] ]]; then \
+            git commit --allow-empty -m \"$MSG\" && \
+            git push origin HEAD && \
+            git tag -a \"$TAG\" -m \"$MSG\" && \
+            git tag -fa \"$MAJOR\" -m \"$MSG\" && \
+            git push origin \"$TAG\" && \
+            git push origin \"$MAJOR\" --force; \
+        else \
+            echo \"Aborted.\"; \
+        fi; \
+    }; f"
+
+    # Cleanup utility to undo a mistake locally and remotely
+    action-unrelease = "!f() { \
+        TAG=\"v$1\"; \
+        MAJOR=\"v${1%%.*}\"; \
+        git tag -d \"$TAG\"; \
+        git tag -d \"$MAJOR\"; \
+        git push origin --delete \"$TAG\"; \
+        git push origin --delete \"$MAJOR\"; \
+    }; f"
+
+    # Quick check for existing version tags
+    action-status = tag -n1 -l 'v*'
+[push]
+	followTags = true
+[core]
+	pager = diff-so-fancy | less --tabs=4 -RF
+[interactive]
+	diffFilter = diff-so-fancy --patch

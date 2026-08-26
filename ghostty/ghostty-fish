@@ -1,0 +1,6 @@
+#!/bin/sh
+if [ -x /opt/homebrew/bin/fish ]; then
+    exec /opt/homebrew/bin/fish --login
+else
+    exec /usr/local/bin/fish --login
+fi

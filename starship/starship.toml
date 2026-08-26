@@ -1,0 +1,106 @@
+#
+# ███████╗████████╗ █████╗ ██████╗ ███████╗██╗  ██╗██╗██████╗
+# ██╔════╝╚══██╔══╝██╔══██╗██╔══██╗██╔════╝██║  ██║██║██╔══██╗
+# ███████╗   ██║   ███████║██████╔╝███████╗███████║██║██████╔╝
+# ╚════██║   ██║   ██╔══██║██╔══██╗╚════██║██╔══██║██║██╔═══╝
+# ███████║   ██║   ██║  ██║██║  ██║███████║██║  ██║██║██║
+# ╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝╚═╝
+# A Rust-powered, customizable cross-shell prompt.
+# https://starship.rs
+
+# Get editor completions based on the config schema
+"$schema" = "https://starship.rs/config-schema.json"
+
+# Inserts a blank line between shell prompts
+add_newline = false
+
+# Global timeout for commands
+command_timeout = 1000
+
+format = """
+$username\
+$hostname\
+$directory\
+$character
+"""
+
+# Use conditional grouping to control module spacing.
+# Spaces are placed in parentheses before $status and $cmd_duration.
+# right_format = "$git_branch( $status)( $cmd_duration)"
+right_format = "$git_branch"
+
+palette = "catppuccin_mocha"
+
+# System specific modules
+
+[character]
+success_symbol = "[›](bold green)"
+error_symbol = "[›](bold red)"
+
+[directory]
+style = "sky"
+format = "[$path]($style)[$read_only]($read_only_style) "
+read_only = "󰌾"
+truncation_symbol = "…/"
+truncation_length = 2
+fish_style_pwd_dir_length = 1
+
+[username]
+style_user = "lavender"
+style_root = "red"
+format = "[$user]($style)"
+show_always = false
+
+[hostname]
+style = "lavender"
+format = "[$hostname]($style)[:](green)"
+ssh_only = true
+
+[cmd_duration]
+min_time = 1_000
+format = "[$duration]($style)"
+
+[status]
+symbol = "✗"
+success_symbol = ""
+not_executable_symbol = "!"
+not_found_symbol = "?"
+sigint_symbol = "✗"
+signal_symbol = "󱐋"
+format = "[$symbol$common_meaning$signal_name$maybe_int]($style)"
+map_symbol = true
+disabled = false
+
+[git_branch]
+style = "bold blue"
+format = "[$branch(:$remote_branch)]($style)"
+
+# Theme palettes
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"

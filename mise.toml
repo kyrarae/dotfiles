@@ -1,0 +1,28 @@
+[settings]
+dotfiles.root = "~/.dotfiles"
+dotfiles.default_mode = "symlink"
+
+[bootstrap.repos]
+"~/.dotfiles" = { url = "git@github.com:kyrarae/dotfiles.git", ref = "main" }
+
+[dotfiles]
+# mise config
+"~/.config/mise/config.toml" = "mise.toml"
+"~/.config/mise/config.arm64.toml" = "mise/config.arm64.toml"
+"~/.config/mise/config.intel.toml" = "mise/config.intel.toml"
+# tools
+"~/.config/bat" = "bat"
+"~/.config/btop" = "btop"
+"~/.config/emacs" = "emacs"
+"~/.config/fish" = "fish"
+"~/.config/gh" = "gh"
+"~/.config/ghostty" = "ghostty"
+"~/.config/git" = "git"
+"~/.config/helix" = "helix"
+"~/.config/kanata" = "kanata"
+"~/.config/lazygit" = "lazygit"
+"~/.config/starship.toml" = "starship/starship.toml"
+"~/.config/tmux" = "tmux"
+"~/.config/tmux-snaglord" = "tmux-snaglord"
+"~/.config/yazi" = "yazi"
+"~/.config/zed" = "zed"

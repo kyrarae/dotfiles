@@ -1,0 +1,15 @@
+;; Caps to escape/control & Hyperkey to right-command configuration for Kanata
+
+(defsrc
+  caps rmet
+)
+
+(defalias
+  escctrl (tap-hold 150 150 esc lctl)
+  hyperkey (tap-hold 150 150 rmet (multi lsft lctl lalt lmet))
+)
+
+(deflayer base
+  @escctrl @hyperkey
+)
+

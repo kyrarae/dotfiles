@@ -1,0 +1,52 @@
+##
+##  ██████╗ ██╗  ██╗ ██████╗ ███████╗████████╗████████╗██╗   ██╗
+## ██╔════╝ ██║  ██║██╔═══██╗██╔════╝╚══██╔══╝╚══██╔══╝╚██╗ ██╔╝
+## ██║  ███╗███████║██║   ██║███████╗   ██║      ██║    ╚████╔╝
+## ██║   ██║██╔══██║██║   ██║╚════██║   ██║      ██║     ╚██╔╝
+## ╚██████╔╝██║  ██║╚██████╔╝███████║   ██║      ██║      ██║
+##  ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝   ╚═╝      ╚═╝      ╚═╝
+## Ghostty is a fast, feature-rich, and cross-platform terminal emulator
+## https://ghostty.org
+
+theme = Catppuccin Mocha
+#theme = Idea
+
+# Shell
+command = "~/.config/ghostty/ghostty-fish"
+shell-integration = fish
+shell-integration-features = "no-cursor"
+
+# Cursor
+cursor-style = block
+cursor-style-blink = true
+cursor-opacity = 0.96
+
+# Font
+font-family = "Terminess Nerd Font"
+font-size = 14
+font-thicken = true
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
+
+# Interface
+background-opacity = 0.85
+background-blur = true
+clipboard-trim-trailing-spaces = true
+mouse-hide-while-typing = true
+window-padding-x = 13
+window-padding-y = 5
+window-save-state = always
+
+# MacOS
+macos-titlebar-style = tabs
+macos-titlebar-proxy-icon = hidden
+macos-icon = custom-style
+macos-icon-frame = plastic
+macos-icon-ghost-color = b4befe
+macos-icon-screen-color = 1e1e2e
+
+# Fix alt+left/right keybindings in tmux
+macos-option-as-alt = true
+keybind = alt+left=unbind
+keybind = alt+right=unbind

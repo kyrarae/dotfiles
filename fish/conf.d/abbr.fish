@@ -1,0 +1,19 @@
+abbr c clear
+abbr cx "chmod +x"
+
+abbr gi gitignore
+
+abbr l "eza --group --header --group-directories-first --long --git --all --binary --all --icons"
+abbr ls eza
+abbr lg lazygit
+
+abbr sl eza
+
+abbr ta "tmux a"
+abbr tat "tmux attach -t"
+
+abbr x "chmod +x (ls | gum filter --limit 1 --header 'chmod +x')"
+
+abbr za "zoxide add"
+abbr zad "ls -d */ | xargs -I {} zoxide add {}"
+abbr ze "zoxide edit"
