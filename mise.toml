@@ -6,11 +6,7 @@ dotfiles.default_mode = "symlink"
 "~/.dotfiles" = { url = "git@github.com:kyrarae/dotfiles.git", ref = "main" }
 
 [dotfiles]
-# mise config
 "~/.config/mise/config.toml" = "mise.toml"
-"~/.config/mise/config.arm64.toml" = "mise/config.arm64.toml"
-"~/.config/mise/config.intel.toml" = "mise/config.intel.toml"
-# tools
 "~/.config/bat" = "bat"
 "~/.config/btop" = "btop"
 "~/.config/emacs" = "emacs"
@@ -26,3 +22,35 @@ dotfiles.default_mode = "symlink"
 "~/.config/tmux-snaglord" = "tmux-snaglord"
 "~/.config/yazi" = "yazi"
 "~/.config/zed" = "zed"
+
+[tools]
+bat = "latest"
+"github:paulilaaso/bit" = "latest"
+c3 = "latest"
+"github:pherrymason/c3-lsp" = { version = "latest", os = ["macos/arm64"], bin_path = "server/bin/release" }
+"github:clangd/clangd" = "latest"
+"github:so-fancy/diff-so-fancy" = "latest"
+eza = "latest"
+fd = { version = "latest", os = ["macos/arm64"] }
+fzf = "latest"
+gh = "latest"
+gum = "latest"
+helix = "latest"
+just = "latest"
+jq = "latest"
+lazygit = "latest"
+node = "lts"
+odin = "latest"
+"github:DanielGavin/ols" = { version = "latest", rename_exe = { "ols-*" = "ols", "odinfmt-*" = "odinfmt" }}
+"github:SimonBure/presse" = "latest"
+python = ["3.11", "3.13"]
+"github:cesarferreira/rip" = "latest"
+ripgrep = "latest"
+starship = "latest"
+tmux = "latest"
+"github:raine/tmux-snaglord" = "latest"
+vlang = "latest"
+"github:vlang/v-analyzer" = "latest"
+xcodegen = "latest"
+yazi = "latest"
+zoxide = "latest"
