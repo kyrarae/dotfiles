@@ -22,9 +22,3 @@ end
 if type -q mise
     set -gx ODIN_ROOT (mise where odin 2>/dev/null)
 end
-
-if test (uname -m) = "arm64"
-    abbr --add muse 'mise use --env arm64'
-else
-    abbr --add muse 'mise use --env intel'
-end
