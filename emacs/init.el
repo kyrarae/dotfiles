@@ -55,6 +55,8 @@
   :ensure t
   :if (memq window-system '(mac ns x))
   :config
+  (setq exec-path-from-shell-shell-name "/bin/zsh")
+  (setq exec-path-from-shell-arguments '("-l"))
   (setq exec-path-from-shell-variables '("PATH" "ODIN_ROOT"))
   (exec-path-from-shell-initialize))
 

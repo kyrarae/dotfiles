@@ -63,7 +63,7 @@
   :custom
   (tool-bar-mode nil)
   (scroll-bar-mode nil)
-  (global-display-line-numbers-mode t)
+  ;; (global-display-line-numbers-mode nil)
   (display-line-numbers-grow-only t)
   (display-line-numbers-type 'relative)
   (display-line-numbers-width-start t)
@@ -77,6 +77,8 @@
   (repeat-mode 1)
   ;; Exit after 5 seconds of inactivity
   (repeat-exit-timeout 5)
+  :hook
+  (prog-mode-hook . display-line-numbers-mode)
   :config
   (put 'upcase-region   'disabled nil)
   (put 'downcase-region 'disabled nil)
@@ -146,3 +148,9 @@
 		      (setq fill-column 80)
 		      (setq display-fill-column-indicator t)
 		      (setq display-fill-column-indicator-character ?▏))))
+
+;; Nerd icons
+(use-package nerd-icons
+  :ensure t
+  :custom
+  (nerd-icons-font-family kyra-fixed-font))

@@ -56,7 +56,13 @@
 ;;(add-to-list 'default-frame-alist '(undecorated-round . t))
 
 ;; Default font for frame
-(add-to-list 'default-frame-alist '(font . "Terminess Nerd Font-14"))
+;; (add-to-list 'default-frame-alist '(font . "Terminess Nerd Font-14"))
+(defvar kyra-fixed-font "Terminess Nerd Font"
+  "My fixed-width nerd font of choice.")
+
+(when kyra-fixed-font
+  (add-to-list 'default-frame-alist
+               `(font . ,(format "%s-14" kyra-fixed-font))))
 
 ;; Custom frame title
 ;; (setq frame-title-format '("" "%b @ Emacs " emacs-version))

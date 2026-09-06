@@ -43,6 +43,12 @@
           (base0D (kyra-get-base16-color colors :base0D))  ; Functions
           (base0E (kyra-get-base16-color colors :base0E))) ; Keywords
 
+      ;; Syntax Highlighting (Lighter Comments)
+      (kyra-set-face 'font-lock-comment-face
+                     :foreground base04)
+      (kyra-set-face 'font-lock-comment-delimiter-face
+                     :foreground base04)
+
       ;; Custom Modeline
       (when (fboundp 'kyra-modeline-apply-base16-colors)
         (kyra-modeline-apply-base16-colors colors))
@@ -59,7 +65,7 @@
 
       ;; Cursor / Caret Color
       (kyra-set-face 'cursor
-		     :background base03)
+		     :background base06)
 
       ;; Column Indicator
       (kyra-set-face 'fill-column-indicator
@@ -181,4 +187,4 @@
   ;; Re-apply faces once all deferred packages have finished loading on startup
   (add-hook 'after-init-hook #'kyra-apply-base16-custom-faces)
   ;; Initial Theme Load
-  (load-theme 'base16-rose-pine-moon t))
+  (load-theme 'base16-catppuccin-mocha t))

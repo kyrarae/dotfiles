@@ -61,6 +61,15 @@
       (when (or (null user-buffers)
                 (equal user-buffers (list (current-buffer))))
         (run-at-time 0 nil #'dashboard-open))))
+  (defun kyra-dashboard-heading-spacing (args)
+    "Add leading spaces to dashboard heading titles."
+    (when (and (car args)
+               (stringp (car args))
+               (not (string-prefix-p " " (car args))))
+      (setf (car args) (concat " " (car args))))
+    args)
+  (advice-add 'dashboard-insert-heading
+	      :filter-args #'kyra-dashboard-heading-spacing)
   :hook
   (kill-buffer . kyra-fallback-to-dashboard-on-kill)
   :bind

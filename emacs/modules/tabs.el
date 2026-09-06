@@ -8,9 +8,12 @@
   centaur-tabs-headline-match
   centaur-tabs-change-fonts
   :custom
-  (centaur-tabs-style "bar")
+  (centaur-tabs-style "box")
   (centaur-tabs-height 20)
-  (centaur-tabs-set-icons t)
+  (centaur-tabs-set-bar 'under)
+  (x-underline-at-descent-line t)
+  (centaur-tabs-set-icons nil)
+  (centaur-tabs-icon-type 'nerd-icons)
   (centaur-tabs-show-new-tab-button t)
   (centaur-tabs-set-close-button nil)
   (centaur-tabs-modified-marker "•")
@@ -28,7 +31,8 @@
 				    "*posframe-"
 				    " *vundo"
 				    " *Embark"
-				    " *Minibuf"))
+				    " *Minibuf"
+				    " *rangefinder-"))
   :config
   (centaur-tabs-mode t)
   (centaur-tabs-change-fonts (face-attribute 'default :font) 130)
